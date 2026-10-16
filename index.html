@@ -502,6 +502,249 @@
       </div>
     </section>
 
+    <!-- SECÇÃO 05: INSCRIÇÃO -->
+    <section class="enrollment-section" id="inscricao">
+      <div class="enrollment-container">
+
+        <!-- COLUNA ESQUERDA -->
+        <div class="enrollment-intro">
+          <span class="section-eyebrow">05 · INSCRIÇÃO</span>
+
+          <h2>
+            Dá o primeiro
+            <span>passo.</span>
+          </h2>
+
+          <p>
+            Conta-nos como gostarias de aprender inglês.
+            Entraremos em contacto para criar o melhor plano
+            para ti.
+          </p>
+
+          <div class="enrollment-steps">
+            <div class="enrollment-step">
+              <span class="step-number">1</span>
+              <span>Preenche o formulário</span>
+            </div>
+
+            <div class="enrollment-step">
+              <span class="step-number">2</span>
+              <span>Confirmamos a disponibilidade</span>
+            </div>
+
+            <div class="enrollment-step">
+              <span class="step-number">3</span>
+              <span>Começa a aprender</span>
+            </div>
+          </div>
+
+          <blockquote class="enrollment-quote">
+            “A journey of a thousand miles begins with a single step.”
+          </blockquote>
+        </div>
+
+        <!-- COLUNA DIREITA: FORMULÁRIO -->
+        <div class="enrollment-form-panel">
+
+          <form id="enrollment-form">
+
+            <!-- DADOS PESSOAIS -->
+            <div class="form-section-heading">
+              <span class="form-section-number">01</span>
+
+              <div>
+                <h3>Dados pessoais</h3>
+                <p>Como podemos contactar-te?</p>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="student-name">Nome completo</label>
+              <input type="text" id="student-name" name="name" placeholder="O teu nome" autocomplete="name" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="student-email">Endereço de e-mail</label>
+                <input type="email" id="student-email" name="email" placeholder="nome@email.com" autocomplete="email"
+                  required>
+              </div>
+
+              <div class="form-field">
+                <label for="student-phone">Telefone / WhatsApp</label>
+                <input type="tel" id="student-phone" name="phone" placeholder="+244 9XX XXX XXX" autocomplete="tel"
+                  required>
+              </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- PREFERÊNCIAS DE APRENDIZAGEM -->
+            <div class="form-section-heading">
+              <span class="form-section-number">02</span>
+
+              <div>
+                <h3>Preferências de aprendizagem</h3>
+                <p>Personaliza a tua experiência.</p>
+              </div>
+            </div>
+
+            <!-- ESCOLHA DO CURSO -->
+            <fieldset class="form-field">
+              <legend>Curso pretendido</legend>
+
+              <div class="choice-grid course-choice-grid">
+
+                <label class="choice-card">
+                  <input type="radio" name="course" value="General English" checked required>
+
+                  <span class="custom-radio"></span>
+
+                  <span class="choice-copy">
+                    <strong>General English</strong>
+                    <small>Inglês para o dia a dia</small>
+                  </span>
+                </label>
+
+                <label class="choice-card">
+                  <input type="radio" name="course" value="English for Specific Purposes" required>
+
+                  <span class="custom-radio"></span>
+
+                  <span class="choice-copy">
+                    <strong>English for Specific Purposes</strong>
+                    <small>Inglês para a carreira</small>
+                  </span>
+                </label>
+
+              </div>
+            </fieldset>
+
+            <!-- ÁREA PROFISSIONAL: VISÍVEL APENAS NO CURSO PROFISSIONAL -->
+            <div class="form-field professional-field" id="professional-field" hidden>
+              <label for="professional-area">Área profissional</label>
+
+              <select id="professional-area" name="professional_area" disabled>
+                <option value="">Selecciona a tua área</option>
+                <option value="Engenharia">Engineering</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Vendas">Sales</option>
+                <option value="Tecnologia de Informação">
+                  Information Technology
+                </option>
+                <option value="Gestão e Negócios">
+                  Business &amp; Management
+                </option>
+                <option value="Outra área profissional">
+                  Other Professional Fields
+                </option>
+              </select>
+            </div>
+
+            <!-- MODALIDADE E FREQUÊNCIA -->
+            <div class="form-row form-row-options">
+
+              <fieldset class="form-field">
+                <legend>Modalidade</legend>
+
+                <div class="choice-buttons">
+                  <label class="choice-pill">
+                    <input type="radio" name="modality" value="Aulas particulares" checked required>
+                    <span>Aulas particulares</span>
+                  </label>
+
+                  <label class="choice-pill">
+                    <input type="radio" name="modality" value="Aulas em grupo" required>
+                    <span>Aulas em grupo</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-field">
+                <legend>Frequência semanal</legend>
+
+                <div class="choice-buttons">
+                  <label class="choice-pill">
+                    <input type="radio" name="frequency" value="2 sessões por semana" required>
+                    <span>2 sessões</span>
+                  </label>
+
+                  <label class="choice-pill">
+                    <input type="radio" name="frequency" value="3 sessões por semana" required>
+                    <span>3 sessões</span>
+                  </label>
+
+                  <label class="choice-pill">
+                    <input type="radio" name="frequency" value="4 sessões por semana" required>
+                    <span>4 sessões</span>
+                  </label>
+                </div>
+              </fieldset>
+
+            </div>
+
+            <!-- PERÍODO -->
+            <fieldset class="form-field">
+              <legend>Período preferido</legend>
+
+              <div class="choice-buttons period-buttons">
+                <label class="choice-pill">
+                  <input type="radio" name="period" value="Manhã · 12h – 17h" required>
+                  <span>Manhã · 8h – 12h</span>
+                </label>
+                <label class="choice-pill">
+                  <input type="radio" name="period" value="Tarde · 13h – 17h" required>
+                  <span>Tarde · 13h – 17h</span>
+                </label>
+
+                <label class="choice-pill">
+                  <input type="radio" name="period" value="Noite · 18h – 21h" required>
+                  <span>Noite · 18h – 21h</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- DIAS PREFERIDOS -->
+            <div class="form-field">
+              <label for="preferred-days">Dias preferidos</label>
+
+              <input type="text" id="preferred-days" name="preferred_days" placeholder="Ex.: Segunda, quarta e sexta"
+                required>
+            </div>
+
+            <!-- OBJECTIVO -->
+            <div class="form-field">
+              <label for="student-objective">
+                Qual é o teu principal objectivo?
+                <span class="optional-label">(opcional)</span>
+              </label>
+
+              <textarea id="student-objective" name="objective" rows="3"
+                placeholder="Conta-nos o que gostarias de alcançar..."></textarea>
+            </div>
+
+            <!-- MENSAGEM DE ESTADO -->
+            <div class="form-feedback" id="form-feedback" role="status" aria-live="polite" hidden></div>
+
+            <!-- SUBMISSÃO -->
+            <button type="submit" class="enrollment-submit">
+              <span>Enviar inscrição</span>
+            </button>
+
+            <p class="form-disclaimer">
+              <span class="disclaimer-icon" aria-hidden="true">i</span>
+              <span>
+                O envio não exige pagamento imediato. Confirmaremos
+                a disponibilidade, o horário e as instruções de pagamento.
+              </span>
+            </p>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
 
   </main>
 </body>

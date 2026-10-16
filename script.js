@@ -25,3 +25,73 @@ if (menuToggle && navLinks) {
     }
   });
 }
+
+/* ==========================================
+   FORMULÁRIO DE INSCRIÇÃO
+========================================== */
+
+(() => {
+  const form = document.querySelector("#enrollment-form");
+
+  if (!form) return;
+
+  const professionalField = document.querySelector("#professional-field");
+  const professionalSelect = document.querySelector("#professional-area");
+  const feedback = document.querySelector("#form-feedback");
+
+  const courseInputs = form.querySelectorAll('input[name="course"]');
+
+  function updateProfessionalField() {
+    const selectedCourse = form.querySelector(
+      'input[name="course"]:checked'
+    );
+
+    const needsProfessionalArea =
+      selectedCourse?.value === "English for Specific Purposes";
+
+    professionalField.hidden = !needsProfessionalArea;
+    professionalSelect.disabled = !needsProfessionalArea;
+    professionalSelect.required = needsProfessionalArea;
+
+    if (!needsProfessionalArea) {
+      professionalSelect.value = "";
+    }
+  }
+
+  courseInputs.forEach((input) => {
+    input.addEventListener("change", updateProfessionalField);
+  });
+
+  updateProfessionalField();
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    feedback.hidden = true;
+    feedback.className = "form-feedback";
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const formData = new FormData(form);
+    const enrollment = Object.fromEntries(formData.entries());
+
+    // Disponibiliza os dados para futura integração com um servidor.
+    console.log("Dados da inscrição:", enrollment);
+
+    feedback.textContent =
+      "O formulário está válido! Para recebermos a tua inscrição, " +
+      "falta ligar este formulário ao sistema de envio.";
+
+    feedback.classList.add("feedback-success");
+    feedback.hidden = false;
+
+    feedback.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
+  });
+})();
+
