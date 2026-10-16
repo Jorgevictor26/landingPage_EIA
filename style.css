@@ -2011,3 +2011,445 @@ h1 {
     font-size: 12px;
   }
 }
+
+/* ========================================
+   PLANOS DE APRENDIZAGEM
+======================================== */
+
+.pricing-section {
+  --pricing-navy: #071b34;
+  --pricing-blue: #087bb9;
+  --pricing-light-blue: #70c2ed;
+  --pricing-red: #f4434d;
+  --pricing-muted: #7186a0;
+
+  background: var(--pricing-navy);
+  color: #fff;
+  padding: 100px 24px 64px;
+  overflow: hidden;
+  scroll-margin-top: 90px;
+}
+
+.pricing-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.pricing-heading {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto 54px;
+}
+
+.pricing-heading .section-eyebrow {
+  display: inline-block;
+  color: #51b8f0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.pricing-heading h2 {
+  color: #fff;
+  font-size: clamp(36px, 4.1vw, 58px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -2.4px;
+  margin: 0 0 22px;
+}
+
+.pricing-heading h2 span {
+  color: var(--pricing-light-blue);
+}
+
+.pricing-heading>p {
+  color: #a6b7cc;
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 530px;
+  margin: 0 auto;
+}
+
+/* Grelha dos três planos */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 18px;
+}
+
+.pricing-card {
+  position: relative;
+  min-width: 0;
+  background: #fff;
+  color: #102743;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgb(0 0 0 / 16%);
+}
+
+.pricing-card-featured {
+  border-color: #08a7f5;
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: #0b9ee5;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 8px 11px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Cabeçalho de cada cartão */
+
+.pricing-card-header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 52px;
+  padding-bottom: 23px;
+  border-bottom: 1px solid #d8e2ec;
+}
+
+.pricing-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  color: #0878c9;
+  background: #e9f5fc;
+}
+
+.pricing-icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+.pricing-card-header h3 {
+  color: #18304e;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 0 5px;
+  overflow-wrap: anywhere;
+}
+
+.pricing-card-header p {
+  color: var(--pricing-muted);
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Preços por frequência semanal */
+
+.pricing-options {
+  margin-bottom: 24px;
+}
+
+.pricing-option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 69px;
+  border-bottom: 1px solid #d8e2ec;
+  font-size: 11px;
+}
+
+.option-frequency {
+  position: relative;
+  flex: 1;
+  padding-left: 21px;
+  color: #5b7390;
+  line-height: 1.5;
+}
+
+.pricing-option strong {
+  color: #071b34;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.pricing-option strong small {
+  font-size: 10px;
+}
+
+.price-period {
+  color: #8293a8;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+/* Botões */
+
+.pricing-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  width: 100%;
+  min-height: 47px;
+  padding: 12px 14px;
+  margin-top: auto;
+  border-radius: 7px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.pricing-button:hover {
+  transform: translateY(-2px);
+}
+
+.pricing-button-dark {
+  background: #071b34;
+}
+
+.pricing-button-dark:hover {
+  background: #12385d;
+}
+
+.pricing-button-red {
+  background: var(--pricing-red);
+}
+
+.pricing-button-red:hover {
+  background: #dc303b;
+}
+
+.pricing-arrow {
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Cartão de aulas de grupo */
+
+.pricing-card-group {
+  background: #106b9f;
+  color: #fff;
+  border-color: transparent;
+}
+
+.pricing-card-group .pricing-card-header {
+  border-bottom-color: rgb(255 255 255 / 20%);
+}
+
+.pricing-card-group .pricing-icon {
+  color: #fff;
+  background: rgb(255 255 255 / 15%);
+}
+
+.pricing-card-group .pricing-card-header h3,
+.pricing-card-group .pricing-card-header p {
+  color: #fff;
+}
+
+.pricing-card-group .pricing-card-header p {
+  opacity: 0.9;
+}
+
+.group-price {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 25px 0 18px;
+}
+
+.group-price>strong {
+  font-size: clamp(29px, 2.5vw, 34px);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.group-price>span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+.group-price>span small {
+  color: #c6ddec;
+  font-size: 9px;
+}
+
+.group-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px;
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
+}
+
+.group-benefits li {
+  position: relative;
+  padding: 0 0 0 25px;
+  margin-bottom: 17px;
+  color: #e2f1fb;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.group-benefits li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  color: #fff;
+  font-size: 16px;
+}
+
+/* Nota no fundo da secção */
+
+.pricing-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 37px auto 0;
+  color: #849bb5;
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.pricing-note svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+  .pricing-section {
+    padding: 80px 24px 55px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 18px;
+  }
+
+  .pricing-card-group {
+    grid-column: 1 / -1;
+  }
+
+  .pricing-card-group .group-price {
+    padding-top: 22px;
+  }
+
+  .pricing-card-group .group-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    padding-bottom: 5px;
+  }
+
+  .pricing-card-group .group-benefits li {
+    margin-bottom: 12px;
+  }
+}
+
+/* Telemóveis */
+
+@media (max-width: 620px) {
+  .pricing-section {
+    padding: 66px 18px 45px;
+  }
+
+  .pricing-heading {
+    margin-bottom: 42px;
+  }
+
+  .pricing-heading .section-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+  }
+
+  .pricing-heading h2 {
+    font-size: clamp(31px, 8vw, 43px);
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+  }
+
+  .pricing-heading>p {
+    font-size: 13px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+  }
+
+  .pricing-card {
+    padding: 23px 20px;
+  }
+
+  .pricing-card-group {
+    grid-column: auto;
+  }
+
+  .pricing-card-group .group-benefits {
+    display: block;
+    padding-bottom: 5px;
+  }
+
+  .pricing-card-group .group-benefits li {
+    margin-bottom: 17px;
+  }
+
+  .pricing-option {
+    min-height: 65px;
+  }
+
+  .pricing-card-header h3 {
+    font-size: 14px;
+  }
+
+  .pricing-note {
+    align-items: flex-start;
+    max-width: 340px;
+    font-size: 10px;
+  }
+}
+
+/* Acessibilidade: respeitar preferência por menos animação */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .pricing-card,
+  .pricing-button {
+    transition: none;
+  }
+
+  .pricing-card:hover,
+  .pricing-button:hover {
+    transform: none;
+  }
+}
