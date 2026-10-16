@@ -131,3 +131,15 @@ if (menuToggle && navLinks) {
   });
 })();
 
+/* ==========================================
+   FOOTER — ANO AUTOMÁTICO
+========================================== */
+
+(() => {
+  const yearElement = document.querySelector("#footer-year");
+
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+})();
+
