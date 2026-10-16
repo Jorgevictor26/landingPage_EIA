@@ -1003,8 +1003,267 @@ h1 {
 }
 
 /* ========================================
-   SECÇÃO 02 — CURSOS
+   SECÇÃO 02 — OS NOSSOS CURSOS
 ======================================== */
+
+.courses-section {
+  padding: 86px 0 92px;
+  background: #f3f6f8;
+  color: var(--navy);
+}
+
+.courses-container,
+.learning-container {
+  width: min(1354px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.courses-heading {
+  display: grid;
+  grid-template-columns: 1fr 0.62fr;
+  align-items: end;
+  gap: 50px;
+  margin-bottom: 55px;
+}
+
+.courses-heading h2,
+.learning-heading h2 {
+  margin: 0;
+  color: #071d36;
+  font-size: clamp(42px, 4vw, 59px);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -2.8px;
+}
+
+.courses-heading h2 span,
+.learning-heading h2 span {
+  color: #0878c9;
+}
+
+.courses-intro {
+  max-width: 440px;
+  justify-self: end;
+  margin: 0 0 5px;
+  color: #718198;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* Grelha dos cartões */
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.course-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 390px;
+  padding: 30px 34px 32px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 15px;
+  color: #ffffff;
+  box-shadow: 0 18px 40px rgba(7, 29, 54, 0.07);
+}
+
+.course-general {
+  background: linear-gradient(135deg, #103d65 0%, #071d36 100%);
+}
+
+.course-professional {
+  background: linear-gradient(120deg, #1086c7 0%, #08629b 100%);
+}
+
+.course-card-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: auto;
+}
+
+.course-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.course-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.course-number {
+  align-self: flex-start;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.course-content {
+  position: relative;
+  z-index: 1;
+  margin-top: 42px;
+}
+
+.course-label {
+  display: block;
+  margin-bottom: 17px;
+  color: #ff777e;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+}
+
+.course-professional .course-label {
+  color: #a8e0ff;
+}
+
+.course-content h3 {
+  margin: 0 0 15px;
+  font-size: clamp(32px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -1.8px;
+}
+
+.course-professional .course-content h3 {
+  font-size: clamp(29px, 2.8vw, 37px);
+}
+
+.course-content>p {
+  max-width: 470px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.77);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+/* Benefícios do inglês geral */
+
+.course-benefits {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 23px;
+  padding: 0;
+  list-style: none;
+}
+
+.course-benefits li {
+  position: relative;
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.course-benefits li::before {
+  position: absolute;
+  left: 0;
+  color: #78d2ff;
+  content: "✓";
+}
+
+/* Áreas profissionais */
+
+.speciality-label {
+  margin-top: 20px;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.speciality-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.speciality-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 9px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.speciality-tags span:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Botões dos cursos */
+
+.course-link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 14px;
+  width: fit-content;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  transition: gap 0.2s ease, border-color 0.2s ease;
+}
+
+.course-link:hover {
+  gap: 21px;
+  border-color: #ffffff;
+}
+
+.course-link span {
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* Decoração dos cartões */
+
+.course-decoration {
+  position: absolute;
+  z-index: -1;
+  right: -105px;
+  bottom: -125px;
+  width: 240px;
+  height: 240px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.course-decoration::after {
+  position: absolute;
+  inset: 25px;
+  border: 25px solid rgba(255, 255, 255, 0.035);
+  border-radius: 50%;
+  content: "";
+}
 
 .courses-section {
   padding: 78px 0 90px;
@@ -1086,7 +1345,7 @@ h1 {
   letter-spacing: 1px;
 }
 
-.career-badge > span {
+.career-badge>span {
   font-size: 16px;
 }
 
@@ -1138,7 +1397,7 @@ h1 {
   letter-spacing: -2.4px;
 }
 
-.course-content > p {
+.course-content>p {
   max-width: 510px;
   font-size: 14px;
   line-height: 1.9;
@@ -1337,7 +1596,7 @@ h1 {
     font-size: clamp(33px, 7vw, 44px);
   }
 
-  .course-content > p {
+  .course-content>p {
     font-size: 13px;
   }
 
@@ -1398,56 +1657,6 @@ h1 {
   .course-watermark {
     font-size: 68px;
   }
-}
-
-/* Ligações dos cursos */
-
-.course-link {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  align-self: flex-start;
-  gap: 14px;
-  width: fit-content;
-  padding-bottom: 7px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  color: #ffffff;
-  font-size: 11px;
-  font-weight: 700;
-  transition: gap 0.2s ease, border-color 0.2s ease;
-}
-
-.course-link:hover {
-  gap: 21px;
-  border-color: #ffffff;
-}
-
-.course-link span {
-  font-size: 17px;
-  line-height: 1;
-}
-
-/* Elemento decorativo dos cartões */
-
-.course-decoration {
-  position: absolute;
-  z-index: -1;
-  right: -105px;
-  bottom: -125px;
-  width: 240px;
-  height: 240px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.course-decoration::after {
-  position: absolute;
-  inset: 25px;
-  border: 25px solid rgba(255, 255, 255, 0.035);
-  border-radius: 50%;
-  content: "";
 }
 
 
@@ -1532,7 +1741,7 @@ h1 {
   background: #53d69a;
 }
 
-/* Três vantagens das aulas */
+/* Vantagens das aulas */
 
 .learning-details {
   display: grid;
@@ -1593,14 +1802,14 @@ h1 {
 
 
 /* ========================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE — TABLETS
 ======================================== */
 
 @media (max-width: 1000px) {
 
   .courses-container,
   .learning-container {
-    width: min(100% - 44px, 800px);
+    width: min(calc(100% - 44px), 800px);
   }
 
   .courses-heading {
@@ -1624,10 +1833,24 @@ h1 {
     font-size: 31px;
   }
 
+  .speciality-tags {
+    gap: 8px;
+  }
+
+  .speciality-tags span {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+
   .learning-grid {
     gap: 32px;
   }
 }
+
+
+/* ========================================
+   RESPONSIVIDADE — TELEMÓVEIS
+======================================== */
 
 @media (max-width: 760px) {
   .courses-section {
@@ -1695,7 +1918,8 @@ h1 {
   }
 
   .speciality-tags span {
-    font-size: 11px;
+    min-height: 38px;
+    font-size: 12px;
   }
 
   .learning-section {
@@ -1729,6 +1953,11 @@ h1 {
   }
 }
 
+
+/* ========================================
+   RESPONSIVIDADE — TELEMÓVEIS PEQUENOS
+======================================== */
+
 @media (max-width: 420px) {
 
   .courses-container,
@@ -1755,7 +1984,7 @@ h1 {
 
   .speciality-tags span {
     padding-inline: 8px;
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .learning-image-caption {
