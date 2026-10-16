@@ -95,3 +95,39 @@ if (menuToggle && navLinks) {
   });
 })();
 
+/* ==========================================
+   FAQ — ACORDEÃO INTERACTIVO
+========================================== */
+
+(() => {
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  if (!faqItems.length) return;
+
+  faqItems.forEach((item) => {
+    const button = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+
+    button.addEventListener("click", () => {
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+
+      // Fecha todas as perguntas
+      faqItems.forEach((otherItem) => {
+        const otherButton = otherItem.querySelector(".faq-question");
+        const otherAnswer = otherItem.querySelector(".faq-answer");
+
+        otherButton.setAttribute("aria-expanded", "false");
+        otherItem.classList.remove("is-open");
+        otherAnswer.hidden = true;
+      });
+
+      // Abre a pergunta seleccionada, se estava fechada
+      if (!isOpen) {
+        button.setAttribute("aria-expanded", "true");
+        item.classList.add("is-open");
+        answer.hidden = false;
+      }
+    });
+  });
+})();
+
