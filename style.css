@@ -19,6 +19,7 @@ html {
 
 body {
   margin: 0;
+  padding-top: var(--nav-height);
   font-family: "Inter", Arial, sans-serif;
   color: var(--text);
   background: var(--navy);
@@ -40,12 +41,18 @@ a {
 }
 
 .site-header {
-  position: relative;
-  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 30;
   min-height: var(--nav-height);
-  background: #fff;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
   color: #263d57;
   border-top: 1px solid #e6e9ed;
+  border-bottom: 1px solid rgba(38, 61, 87, 0.08);
+  box-shadow: 0 8px 24px rgba(6, 27, 51, 0.08);
 }
 
 .navbar {
