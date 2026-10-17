@@ -38,6 +38,110 @@ if (menuToggle && navLinks) {
   const professionalField = document.querySelector("#professional-field");
   const professionalSelect = document.querySelector("#professional-area");
   const feedback = document.querySelector("#form-feedback");
+  const preferredDaysTrigger = document.querySelector("#preferred-days-trigger");
+  const selectedDaysSummary = document.querySelector("#selected-days-summary");
+  const preferredDaysInput = document.querySelector("#preferred-days");
+  const dayModalOverlay = document.querySelector("#day-modal-overlay");
+  const dayModalClose = document.querySelector(".day-modal-close");
+  const dayModalConfirm = document.querySelector(".day-modal-confirm");
+  const dayModalClear = document.querySelector(".day-modal-clear");
+  const dayButtons = document.querySelectorAll(".day-check");
+
+  const dayOrder = [
+    "Segunda",
+    "Terça",
+    "Quarta",
+    "Quinta",
+    "Sexta",
+    "Sábado"
+  ];
+
+  let selectedDays = [];
+
+  function updateSelectedDaysSummary() {
+    const orderedDays = [...selectedDays].sort(
+      (a, b) => dayOrder.indexOf(a) - dayOrder.indexOf(b)
+    );
+
+    preferredDaysInput.value = orderedDays.join(", ");
+
+    if (orderedDays.length) {
+      selectedDaysSummary.textContent = orderedDays.join(", ");
+      preferredDaysTrigger.classList.add("has-selection");
+    } else {
+      selectedDaysSummary.textContent = "Seleciona os dias";
+      preferredDaysTrigger.classList.remove("has-selection");
+    }
+  }
+
+  function closeDayModal() {
+    if (!dayModalOverlay) return;
+
+    dayModalOverlay.hidden = true;
+    preferredDaysTrigger?.setAttribute("aria-expanded", "false");
+  }
+
+  function openDayModal() {
+    if (!dayModalOverlay) return;
+
+    dayModalOverlay.hidden = false;
+    preferredDaysTrigger?.setAttribute("aria-expanded", "true");
+  }
+
+  closeDayModal();
+
+  preferredDaysTrigger?.addEventListener("click", () => {
+    const isOpen = preferredDaysTrigger.getAttribute("aria-expanded") === "true";
+
+    if (isOpen) {
+      closeDayModal();
+      return;
+    }
+
+    openDayModal();
+  });
+
+  dayModalClose?.addEventListener("click", closeDayModal);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && dayModalOverlay && !dayModalOverlay.hidden) {
+      closeDayModal();
+    }
+  });
+
+  dayModalOverlay?.addEventListener("click", (event) => {
+    if (event.target === dayModalOverlay) {
+      closeDayModal();
+    }
+  });
+
+  dayButtons.forEach((dayButton) => {
+    const day = dayButton.dataset.day;
+
+    dayButton.addEventListener("click", () => {
+      if (selectedDays.includes(day)) {
+        selectedDays = selectedDays.filter((selectedDay) => selectedDay !== day);
+      } else {
+        selectedDays = [...selectedDays, day];
+      }
+
+      dayButton.classList.toggle("is-active", selectedDays.includes(day));
+    });
+  });
+
+  dayModalClear?.addEventListener("click", () => {
+    selectedDays = [];
+    dayButtons.forEach((button) => button.classList.remove("is-active"));
+    updateSelectedDaysSummary();
+    closeDayModal();
+  });
+
+  dayModalConfirm?.addEventListener("click", () => {
+    updateSelectedDaysSummary();
+    closeDayModal();
+  });
+
+  updateSelectedDaysSummary();
 
   const courseInputs = form.querySelectorAll('input[name="course"]');
 

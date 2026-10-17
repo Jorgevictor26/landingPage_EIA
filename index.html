@@ -684,27 +684,59 @@
 
               <div class="choice-buttons period-buttons">
                 <label class="choice-pill">
-                  <input type="radio" name="period" value="Manhã · 12h – 17h" required>
-                  <span>Manhã · 8h – 12h</span>
+                  <input type="radio" name="period" value="Manhã" required>
+                  <span>Manhã</span>
                 </label>
                 <label class="choice-pill">
-                  <input type="radio" name="period" value="Tarde · 13h – 17h" required>
-                  <span>Tarde · 13h – 17h</span>
+                  <input type="radio" name="period" value="Tarde" required>
+                  <span>Tarde</span>
                 </label>
 
                 <label class="choice-pill">
-                  <input type="radio" name="period" value="Noite · 18h – 21h" required>
-                  <span>Noite · 18h – 21h</span>
+                  <input type="radio" name="period" value="Noite" required>
+                  <span>Noite</span>
                 </label>
               </div>
             </fieldset>
 
             <!-- DIAS PREFERIDOS -->
             <div class="form-field">
-              <label for="preferred-days">Dias preferidos</label>
+              <label for="preferred-days-trigger">Dias preferidos</label>
 
-              <input type="text" id="preferred-days" name="preferred_days" placeholder="Ex.: Segunda, quarta e sexta"
-                required>
+              <button type="button" class="preferred-days-trigger" id="preferred-days-trigger"
+                aria-haspopup="dialog" aria-expanded="false">
+                <span class="trigger-label">Selecciona os teus dias</span>
+                <span class="selected-days-summary" id="selected-days-summary">Seleciona os dias</span>
+                <span class="trigger-arrow" aria-hidden="true">+</span>
+              </button>
+
+              <input type="hidden" id="preferred-days" name="preferred_days" required>
+            </div>
+
+            <div class="day-modal-overlay" id="day-modal-overlay" hidden>
+              <div class="day-modal" role="dialog" aria-modal="true" aria-labelledby="day-modal-title">
+                <div class="day-modal-header">
+                  <div>
+                    <p class="day-modal-kicker">Disponibilidade</p>
+                    <h3 id="day-modal-title">Escolhe os teus dias</h3>
+                  </div>
+                  <button type="button" class="day-modal-close" aria-label="Fechar selector de dias">×</button>
+                </div>
+
+                <div class="day-selector-grid" aria-label="Lista de dias da semana">
+                  <button type="button" class="day-check" data-day="Segunda">Segunda</button>
+                  <button type="button" class="day-check" data-day="Terça">Terça</button>
+                  <button type="button" class="day-check" data-day="Quarta">Quarta</button>
+                  <button type="button" class="day-check" data-day="Quinta">Quinta</button>
+                  <button type="button" class="day-check" data-day="Sexta">Sexta</button>
+                  <button type="button" class="day-check" data-day="Sábado">Sábado</button>
+                </div>
+
+                <div class="day-modal-actions">
+                  <button type="button" class="day-modal-clear">Limpar</button>
+                  <button type="button" class="day-modal-confirm">Guardar</button>
+                </div>
+              </div>
             </div>
 
             <!-- OBJECTIVO -->
