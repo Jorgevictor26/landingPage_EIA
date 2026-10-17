@@ -3486,11 +3486,19 @@ h1 {
 }
 
 .contact-external {
+  display: grid;
+  place-items: center;
   justify-self: end;
   align-self: center;
+  width: 18px;
+  height: 18px;
   color: #d9efff;
-  font-size: 17px;
   transition: transform 0.2s ease;
+}
+
+.contact-external svg {
+  width: 100%;
+  height: 100%;
 }
 
 .contact-item:hover .contact-external {
