@@ -7,6 +7,8 @@
   --text: #f8fbff;
   --muted: #b9cbe0;
   --nav-height: 86px;
+  --font-heading: "Plus Jakarta Sans", "Inter", Arial, sans-serif;
+  --font-body: "Inter", Arial, sans-serif;
 }
 
 * {
@@ -15,14 +17,32 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 17px;
 }
 
 body {
   margin: 0;
   padding-top: var(--nav-height);
-  font-family: "Inter", Arial, sans-serif;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
   color: var(--text);
   background: var(--navy);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.brand-name,
+.nav-links,
+.section-eyebrow,
+.hero-features,
+.button,
+.nav-cta {
+  font-family: var(--font-heading);
 }
 
 a {
@@ -154,7 +174,7 @@ a {
   display: flex;
   align-items: center;
   gap: clamp(22px, 2.5vw, 38px);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -174,7 +194,7 @@ a {
   border-radius: 9px;
   background: var(--red);
   color: #fff;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   transition: transform .2s ease, background .2s ease;
 }
@@ -233,9 +253,9 @@ a {
 
 h1 {
   margin: 0;
-  font-size: clamp(54px, 5.7vw, 91px);
-  line-height: .99;
-  letter-spacing: -.075em;
+  font-size: clamp(56px, 4.9vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -.065em;
   font-weight: 800;
 }
 
@@ -259,7 +279,7 @@ h1 {
 
 .hero-lead {
   margin: 30px 0 18px;
-  font-size: clamp(17px, 1.25vw, 20px);
+  font-size: clamp(18px, 1.5vw, 20px);
   line-height: 1.5;
 }
 
@@ -272,8 +292,8 @@ h1 {
   max-width: 590px;
   margin: 0;
   color: var(--muted);
-  font-size: 15px;
-  line-height: 1.9;
+  font-size: 17px;
+  line-height: 1.8;
   font-weight: 400;
 }
 
@@ -285,16 +305,17 @@ h1 {
 }
 
 .button {
-  min-height: 50px;
+  min-height: 52px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 18px;
-  padding: 0 21px;
+  padding: 0 24px;
   border: 1px solid transparent;
   border-radius: 9px;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
+  line-height: 1.2;
   transition: transform .2s ease, background .2s ease, border-color .2s ease;
 }
 
@@ -668,7 +689,7 @@ h1 {
   }
 
   h1 {
-    font-size: clamp(49px, 11vw, 76px);
+    font-size: clamp(42px, 11vw, 56px);
   }
 
   .hero-lead {
@@ -764,7 +785,7 @@ h1 {
   display: block;
   margin-bottom: 27px;
   color: #0876c9;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -773,10 +794,10 @@ h1 {
 .about-heading h2 {
   margin: 0;
   color: #071d36;
-  font-size: clamp(44px, 3.8vw, 60px);
+  font-size: clamp(36px, 3vw, 44px);
   font-weight: 700;
-  line-height: 1.07;
-  letter-spacing: -3.2px;
+  line-height: 1.08;
+  letter-spacing: -0.06em;
 }
 
 .about-heading h2 span {
@@ -800,9 +821,9 @@ h1 {
 .about-description>p:not(.about-slogan) {
   margin: 0;
   color: #72839a;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 400;
-  line-height: 1.95;
+  line-height: 1.8;
 }
 
 .about-slogan {
@@ -1039,10 +1060,10 @@ h1 {
 .learning-heading h2 {
   margin: 0;
   color: #071d36;
-  font-size: clamp(42px, 4vw, 59px);
+  font-size: clamp(36px, 3.2vw, 44px);
   font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -2.8px;
+  line-height: 1.08;
+  letter-spacing: -0.06em;
 }
 
 .courses-heading h2 span,
@@ -1055,8 +1076,8 @@ h1 {
   justify-self: end;
   margin: 0 0 5px;
   color: #718198;
-  font-size: 14px;
-  line-height: 1.9;
+  font-size: 17px;
+  line-height: 1.8;
 }
 
 /* Grelha dos cartões */
@@ -2062,10 +2083,10 @@ h1 {
 
 .pricing-heading h2 {
   color: #fff;
-  font-size: clamp(36px, 4.1vw, 58px);
+  font-size: clamp(36px, 3.1vw, 44px);
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -2.4px;
+  letter-spacing: -0.06em;
   margin: 0 0 22px;
 }
 
@@ -2075,7 +2096,7 @@ h1 {
 
 .pricing-heading>p {
   color: #a6b7cc;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.8;
   max-width: 530px;
   margin: 0 auto;
@@ -2510,10 +2531,10 @@ h1 {
 
 .enrollment-intro h2 {
   color: #0d243d;
-  font-size: clamp(42px, 4.3vw, 64px);
+  font-size: clamp(36px, 3vw, 44px);
   line-height: 1.08;
-  letter-spacing: -2.5px;
-  font-weight: 600;
+  letter-spacing: -0.06em;
+  font-weight: 700;
   margin: 0 0 24px;
 }
 
@@ -2524,8 +2545,8 @@ h1 {
 
 .enrollment-intro>p {
   color: #4f6078;
-  font-size: 15px;
-  line-height: 1.9;
+  font-size: 17px;
+  line-height: 1.8;
   max-width: 390px;
   margin: 0;
 }
