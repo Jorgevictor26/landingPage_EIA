@@ -21,7 +21,8 @@
     "Quarta",
     "Quinta",
     "Sexta",
-    "Sábado"
+    "Sábado",
+    "Domingo"
   ];
 
   let selectedDays = [];
