@@ -34,7 +34,7 @@ module.exports = async (req, res) => {
     }
 
     const resposta = await fetch(
-      process.env.GOOGLE_SCRIPT_URL,
+      process.env.GOOGLE_SCRPIT_URL,
       {
         method: "POST",
         headers: {
