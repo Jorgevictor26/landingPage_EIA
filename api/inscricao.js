@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
     console.log("[inscricao] body recebido:", JSON.stringify(d));
     console.log("[inscricao] dadosAninhados:", JSON.stringify(dadosAninhados));
     console.log("[inscricao] GOOGLE_SCRIPT_URL definido:", Boolean(process.env.GOOGLE_SCRIPT_URL));
-    console.log("[inscricao] GOOGLE_SCRPIT_URL definido:", Boolean(process.env.GOOGLE_SCRPIT_URL));
+    console.log("[inscricao] GOOGLE_SCRIPT_URL definido:", Boolean(process.env.GOOGLE_SCRIPT_URL));
 
     const campos = [
       "nome", "telefone", "email", "curso",
@@ -38,7 +38,7 @@ module.exports = async (req, res) => {
       }
     }
 
-    const googleUrl = process.env.GOOGLE_SCRIPT_URL || process.env.GOOGLE_SCRPIT_URL;
+    const googleUrl = process.env.GOOGLE_SCRIPT_URL || process.env.GOOGLE_SCRIPT_URL;
 
     console.log("[inscricao] googleUrl:", googleUrl || "URL ausente");
 
