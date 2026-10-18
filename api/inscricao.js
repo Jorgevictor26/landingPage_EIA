@@ -1,3 +1,50 @@
+async function enviarEmailConfirmacao({ nome, email }) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.EMAIL_FROM || "English in Action <no-reply@englishinaction.com>";
+
+  if (!apiKey) {
+    console.warn("[inscricao] RESEND_API_KEY não configurada. Email de confirmação não enviado.");
+    return { ok: false, motivo: "sem_api_key" };
+  }
+
+  try {
+    const resposta = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        from,
+        to: [email],
+        subject: "Recebemos a tua inscrição - English in Action",
+        html: `
+          <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #1b1b1b; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #0b5ea8; margin-bottom: 12px;">Olá ${nome},</h2>
+            <p>Recebemos a tua inscrição na English in Action.</p>
+            <p>Obrigado por entrares em contacto connosco. Vamos analisar a tua candidatura e entraremos em contacto contigo em breve.</p>
+            <p>Enquanto isso, podes continuar a preparar o teu próximo passo para aprender inglês com confiança.</p>
+            <p style="margin-top: 24px;">Com os melhores cumprimentos,<br><strong>English in Action</strong></p>
+          </div>
+        `
+      })
+    });
+
+    const resultado = await resposta.json();
+
+    if (!resposta.ok) {
+      console.error("[inscricao] erro ao enviar email:", resultado);
+      return { ok: false, motivo: "resend_error", resultado };
+    }
+
+    console.log("[inscricao] email de confirmação enviado:", email);
+    return { ok: true };
+  } catch (erro) {
+    console.error("[inscricao] exceção ao enviar email:", erro);
+    return { ok: false, motivo: "exception", erro };
+  }
+}
+
 module.exports = async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({
@@ -12,7 +59,6 @@ module.exports = async (req, res) => {
 
     console.log("[inscricao] body recebido:", JSON.stringify(d));
     console.log("[inscricao] dadosAninhados:", JSON.stringify(dadosAninhados));
-    console.log("[inscricao] GOOGLE_SCRIPT_URL definido:", Boolean(process.env.GOOGLE_SCRIPT_URL));
     console.log("[inscricao] GOOGLE_SCRIPT_URL definido:", Boolean(process.env.GOOGLE_SCRIPT_URL));
 
     const campos = [
@@ -38,7 +84,7 @@ module.exports = async (req, res) => {
       }
     }
 
-    const googleUrl = process.env.GOOGLE_SCRIPT_URL || process.env.GOOGLE_SCRIPT_URL;
+    const googleUrl = process.env.GOOGLE_SCRIPT_URL;
 
     console.log("[inscricao] googleUrl:", googleUrl || "URL ausente");
 
@@ -82,6 +128,15 @@ module.exports = async (req, res) => {
 
     if (!resposta.ok || !sucessoGoogle) {
       throw new Error("O Google não confirmou a inscrição.");
+    }
+
+    const emailResultado = await enviarEmailConfirmacao({
+      nome: resolved.nome,
+      email: resolved.email
+    });
+
+    if (!emailResultado.ok) {
+      console.warn("[inscricao] inscrição registada, mas email de confirmação não foi enviado:", emailResultado);
     }
 
     return res.status(200).json({
