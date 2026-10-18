@@ -2934,6 +2934,15 @@ h1 {
   color: #0875ba;
 }
 
+.choice-pill.is-disabled {
+  opacity: .42;
+  border-color: #c9d5df;
+  background: #f3f6f8;
+  color: #7d8ea1;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .period-buttons .choice-pill {
   min-width: 140px;
   min-height: 37px;

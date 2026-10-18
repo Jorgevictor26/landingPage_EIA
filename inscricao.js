@@ -113,6 +113,8 @@
   updateSelectedDaysSummary();
 
   const courseInputs = form.querySelectorAll('input[name="course"]');
+  const modalityInputs = form.querySelectorAll('input[name="modality"]');
+  const frequencyInputs = form.querySelectorAll('input[name="frequency"]');
 
   function updateProfessionalField() {
     const selectedCourse = form.querySelector(
@@ -131,11 +133,68 @@
     }
   }
 
+  function updateCourseRules() {
+    const selectedCourse = form.querySelector('input[name="course"]:checked');
+    const selectedModality = form.querySelector('input[name="modality"]:checked');
+    const privateModality = form.querySelector('input[name="modality"][value="Aulas particulares"]');
+    const groupModality = form.querySelector('input[name="modality"][value="Aulas em grupo"]');
+    const threeSessions = form.querySelector('input[name="frequency"][value="3 sessões por semana"]');
+
+    const isGeneralEnglish = selectedCourse?.value === "General English";
+
+    modalityInputs.forEach((input) => {
+      const isGroupOption = input.value === "Aulas em grupo";
+      const isDisabledForProfessional = !isGeneralEnglish && isGroupOption;
+
+      input.disabled = isDisabledForProfessional;
+      input.closest("label")?.classList.toggle("is-disabled", isDisabledForProfessional);
+    });
+
+    if (!isGeneralEnglish) {
+      if (privateModality) privateModality.checked = true;
+      frequencyInputs.forEach((input) => {
+        input.disabled = false;
+      });
+      return;
+    }
+
+    if (selectedModality?.value === "Aulas em grupo") {
+      frequencyInputs.forEach((input) => {
+        const isThreeSessions = input.value === "3 sessões por semana";
+        const isDisabled = !isThreeSessions;
+
+        input.disabled = isDisabled;
+        input.closest("label")?.classList.toggle("is-disabled", isDisabled);
+      });
+
+      if (threeSessions) {
+        threeSessions.checked = true;
+      }
+    } else {
+      frequencyInputs.forEach((input) => {
+        input.disabled = false;
+        input.closest("label")?.classList.remove("is-disabled");
+      });
+    }
+
+    if (groupModality && !isGeneralEnglish) {
+      groupModality.disabled = true;
+    }
+  }
+
   courseInputs.forEach((input) => {
-    input.addEventListener("change", updateProfessionalField);
+    input.addEventListener("change", () => {
+      updateProfessionalField();
+      updateCourseRules();
+    });
+  });
+
+  modalityInputs.forEach((input) => {
+    input.addEventListener("change", updateCourseRules);
   });
 
   updateProfessionalField();
+  updateCourseRules();
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
